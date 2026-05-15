@@ -2,28 +2,39 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>QUASAR | Инструкция по выживанию</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --brand-blue: #4545FF;
             --brand-blue-dark: #2A2AAB;
             --brand-green: #7DFF7E;
             --text-white: #FFFFFF;
+            --glass-bg: rgba(255, 255, 255, 0.03);
             --glass-border: rgba(255, 255, 255, 0.15);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
 
         body {
             background-color: var(--brand-blue-dark);
             color: var(--text-white);
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
         }
 
+        /* --- BACKGROUND ANIMATION --- */
         .bg-animate {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -45,45 +56,47 @@
             to { background-position: 60px 60px; }
         }
 
+        /* --- LAYOUT --- */
         .page {
-            width: 90%;
+            width: 92%;
             max-width: 850px;
-            margin: 30px auto;
-            background: rgba(255, 255, 255, 0.03);
+            background: var(--glass-bg);
             border: 1px solid var(--glass-border);
             border-radius: 32px;
-            padding: 35px 50px 45px 50px;
+            padding: 40px 50px;
+            margin-bottom: 30px;
             position: relative;
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.1);
-            page-break-after: always;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
             display: flex;
             flex-direction: column;
         }
 
+        /* --- HEADER --- */
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 100%;
             margin-bottom: 35px;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 20px;
         }
 
         .logo-text {
-            font-size: clamp(12px, 5vw, 20px);
+            font-size: clamp(16px, 4vw, 22px);
             font-weight: 900;
             letter-spacing: 0.5px;
             color: var(--text-white);
         }
 
+        .logo-text span {
+            color: var(--brand-green);
+        }
+
         .status {
-            font-size: clamp(9px, 5vw, 15px);
+            font-size: clamp(10px, 3vw, 13px);
             text-transform: uppercase;
             letter-spacing: 2px;
             font-weight: 700;
@@ -102,8 +115,19 @@
             100% { box-shadow: 0 0 0 0 rgba(125, 255, 126, 0); }
         }
 
+        .header h2 {
+            font-size: clamp(11px, 3vw, 13px);
+            font-weight: 700;
+            color: var(--brand-green);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
+            text-align: right;
+        }
+
+        /* --- TYPOGRAPHY --- */
         h1 {
-            font-size: clamp(25px, 5vw, 40px);
+            font-size: clamp(28px, 5vw, 42px);
             font-weight: 900;
             line-height: 1.2;
             letter-spacing: 1px;
@@ -111,33 +135,21 @@
             color: var(--text-white);
         }
 
-        h2 {
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--brand-green);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
         .hero-desc {
-            font-size: clamp(14px, 2vw, 18px);
+            font-size: clamp(15px, 2.5vw, 17px);
             font-weight: 300;
-            color: rgba(255,255,255,0.85);
-            max-width: 700px;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 100%;
             line-height: 1.6;
+            margin-bottom: 10px;
         }
 
-        .content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
+        /* --- KEY CONTAINER --- */
         .key-container {
-            margin: 30px 0;
-            background: rgba(0, 0, 0, 0.2);
+            margin: 35px 0;
+            background: rgba(0, 0, 0, 0.25);
             border-radius: 20px;
-            padding: 25px 35px;
+            padding: 40px 30px 25px 30px;
             border: 1px solid rgba(125, 255, 126, 0.4);
             position: relative;
             cursor: pointer;
@@ -146,7 +158,7 @@
         }
 
         .key-container:hover {
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.35);
             border-color: var(--brand-green);
             box-shadow: 0 10px 30px rgba(125, 255, 126, 0.2);
             transform: translateY(-2px);
@@ -159,13 +171,16 @@
 
         .key-label {
             position: absolute;
-            top: 12px; right: 20px;
+            top: 15px; 
+            left: 50%;
+            transform: translateX(-50%);
             font-size: 11px;
             font-weight: 700;
             color: var(--brand-green);
             letter-spacing: 2px;
             text-transform: uppercase;
             transition: color 0.3s ease;
+            white-space: nowrap;
         }
 
         .key-container.copied {
@@ -179,52 +194,77 @@
 
         code {
             font-family: 'Courier New', monospace;
-            font-size: clamp(12px, 1.5vw, 14px);
+            font-size: clamp(13px, 2vw, 15px);
             color: var(--text-white);
+            word-wrap: break-word;
             word-break: break-all;
             display: block;
             line-height: 1.5;
-            margin-top: 10px;
             user-select: none;
             transition: opacity 0.3s ease;
+            text-align: center;
         }
 
+        .warning-text { 
+            color: var(--text-white); 
+            font-size: 14px; 
+            font-weight: 700; 
+            opacity: 0.8; 
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .warning-text span { color: var(--brand-green); }
+
+        /* --- GRID & CARDS --- */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
+            align-items: stretch;
         }
 
         .card {
             background: var(--brand-blue);
-            padding: 30px;
+            padding: 35px 30px;
             border-radius: 28px;
             border: 1px solid var(--glass-border);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
         }
 
         .card h3 {
             font-size: 22px;
-            font-weight: 700;
+            font-weight: 900;
             color: var(--brand-green);
             margin-bottom: 25px;
             letter-spacing: 0.5px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 15px;
         }
 
         .step {
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             display: flex;
+            align-items: flex-start;
             gap: 15px;
             font-size: 15px;
             line-height: 1.5;
-            font-weight: 300;
-            color: rgba(255,255,255,0.9);
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .step:last-child {
+            margin-bottom: 0;
         }
 
         .step b {
@@ -235,42 +275,101 @@
         .step-num {
             background: var(--brand-green);
             color: var(--brand-blue-dark);
-            width: 22px; height: 22px;
+            width: 24px; height: 24px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
-            font-size: 11px;
+            font-weight: 900;
+            font-size: 12px;
             flex-shrink: 0;
-            margin-top: 2px;
+            margin-top: -2px;
             box-shadow: 0 0 10px rgba(125, 255, 126, 0.4);
         }
 
+        /* --- COMPONENTS --- */
         .info-box {
-            margin-top: 30px; 
-            background: rgba(255,255,255,0.05); 
-            padding: 20px 25px; 
+            margin-top: 35px; 
+            background: rgba(255, 255, 255, 0.05); 
+            padding: 25px; 
             border-radius: 20px; 
             border-left: 4px solid var(--brand-green);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
+
+        .info-text { 
+            font-size: 15px; 
+            color: rgba(255, 255, 255, 0.85); 
+            line-height: 1.6; 
+        }
+        
+        .info-text b { 
+            color: var(--brand-green); 
+            font-weight: 900; 
+            letter-spacing: 0.5px;
+        }
+
+        /* --- FINAL SECTION --- */
+        .align-center { align-items: center; }
+        .text-center { text-align: center; }
+
+        .bot-container {
+            background: rgba(125, 255, 126, 0.05); 
+            padding: 35px 30px; 
+            border-radius: 24px; 
+            border: 1px dashed rgba(125, 255, 126, 0.5); 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); 
+            width: 100%; 
+            max-width: 500px; 
+            margin: 0 auto;
+        }
+
+        .bot-label { 
+            font-size: 13px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            color: var(--brand-green); 
+            margin-bottom: 15px; 
+        }
+
+        .bot-name {
+            font-size: clamp(26px, 5vw, 38px);
+            font-weight: 900;
+            color: var(--text-white);
+            letter-spacing: 2px;
+        }
+
+        .bot-hint { 
+            margin-top: 35px; 
+            font-size: 16px; 
+            font-weight: 400; 
+            color: rgba(255, 255, 255, 0.7); 
+            line-height: 1.6; 
+        }
+        .bot-hint b { color: var(--text-white); font-weight: 700; }
 
         .btn {
             display: inline-block;
             background: var(--brand-green);
             color: var(--brand-blue-dark);
-            padding: 20px 45px;
+            padding: 22px 50px;
             border-radius: 100px;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 900;
             font-size: 16px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-top: 30px;
+            margin-top: 35px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 10px 25px rgba(125, 255, 126, 0.4);
             position: relative;
             overflow: hidden;
+            border: none;
+            cursor: pointer;
         }
 
         .btn::after {
@@ -280,7 +379,7 @@
             left: -100%;
             width: 50%;
             height: 100%;
-            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
             transform: skewX(-25deg);
             transition: all 0.7s ease;
         }
@@ -290,7 +389,7 @@
         }
 
         .btn:hover {
-            transform: translateY(-3px);
+            transform: translateY(-4px) scale(1.02);
             box-shadow: 0 15px 35px rgba(125, 255, 126, 0.6);
             background: #90ff91;
         }
@@ -300,76 +399,77 @@
             box-shadow: 0 5px 15px rgba(125, 255, 126, 0.4);
         }
 
-        .bot-container {
-            background: rgba(125, 255, 126, 0.05); 
-            padding: 35px 40px; 
-            border-radius: 40px; 
-            border: 1px dashed rgba(125, 255, 126, 0.5); 
-            display: inline-block; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
-            width: 100%; 
-            max-width: 450px; 
-            margin: 0 auto;
-        }
-
-        .bot-name {
-            font-size: clamp(28px, 4vw, 40px);
-            font-weight: 900;
-            color: var(--text-white);
-            letter-spacing: 2px;
-        }
-
-        .text-center { text-align: center; }
-        .align-center { align-items: center; }
-        .bot-label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--brand-green); margin-bottom: 12px; }
-        .bot-hint { margin-top: 30px; font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.6); line-height: 1.6; }
-        .bot-hint b { color: var(--text-white); font-weight: 700; }
-        .info-text { font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.5; }
-        .info-text b { color: var(--brand-green); font-weight: 700; }
-        .warning-text { color: var(--text-white); font-size: 14px; font-weight: 700; opacity: 0.8; margin-top: 10px; }
-        .warning-text span { color: var(--brand-green); }
-
+        /* --- RESPONSIVE ADAPTATION --- */
         @media (max-width: 768px) {
+            body {
+                padding: 15px 0;
+            }
             .page {
-                width: 95%;
-                padding: 35px 25px;
-                margin: 20px auto;
+                width: 94%;
+                padding: 30px 20px;
                 border-radius: 24px;
+                margin-bottom: 20px;
             }
-            .header { margin-bottom: 30px; }
-            .logo-text { font-size: 20px; }
-            .status, h2 { font-size: 10px; padding: 5px 12px; }
-            .grid { gap: 20px; }
-            .card { padding: 25px; border-radius: 20px; }
-            .key-container { padding: 35px 20px 20px 20px; margin: 25px 0; }
-            .key-label {
-                top: 10px; right: auto; left: 50%;
-                transform: translateX(-50%); width: 100%; text-align: center;
+            .header {
+                margin-bottom: 25px;
+                padding-bottom: 15px;
             }
-            .btn { width: 100%; text-align: center; padding: 18px 30px; font-size: 15px; }
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .card {
+                padding: 25px 20px;
+                border-radius: 20px;
+            }
+            .key-container {
+                padding: 40px 15px 20px 15px;
+                margin: 25px 0;
+            }
+            .btn {
+                width: 100%;
+                text-align: center;
+                padding: 20px 20px;
+                font-size: 14px;
+            }
+            .bot-container {
+                padding: 25px 20px;
+                border-radius: 20px;
+            }
+            .info-box {
+                padding: 20px 15px;
+            }
         }
 
         @media print {
             .bg-animate { display: none; }
+            body { padding: 0; background: #4545FF !important; }
             .page { 
-                margin: 0; width: 100%; border: none; 
-                background: #4545FF !important;
+                margin: 0 0 20px 0; 
+                width: 100%; 
+                border: none; 
+                background: transparent !important;
                 -webkit-print-color-adjust: exact;
                 box-shadow: none;
+                page-break-after: always;
             }
             .card { background: rgba(0,0,0,0.15) !important; border: 1px solid rgba(255,255,255,0.2) !important; }
             .btn, .step-num { background: #7DFF7E !important; color: #2A2AAB !important; }
+            .key-container { background: rgba(0,0,0,0.1) !important; border-color: #7DFF7E !important; }
         }
     </style>
 </head>
 <body>
 
-<div class="bg-animate"><div class="particles"></div></div>
+<div class="bg-animate">
+    <div class="particles"></div>
+</div>
 
+<!-- PAGE 1: INTRO & KEY -->
 <div class="page">
     <div class="header">
         <div class="logo-container">
-            <div class="logo-text">QUASAR <span style="color: var(--brand-green);">VPN</span></div>
+            <div class="logo-text">QUASAR <span>VPN</span></div>
         </div>
         <div class="status">SYSTEM ONLINE</div>
     </div>
@@ -381,19 +481,22 @@
             Премиальное решение для тех, кто ценит безопасность и скорость.
         </p>
         
-        <div class="key-container" id="keyContainer">
+        <div class="key-container" id="keyContainer" onclick="copyKey()">
             <div class="key-label" id="keyLabel">КЛИКНИ, ЧТОБЫ СКОПИРОВАТЬ КЛЮЧ</div>
-            <code id="bridgeKey">Connecting...</code>
+            <code id="bridgeKey">vless://73edc651-9355-4d58-8dc0-480f337871d3@quasardark.com:443?security=reality&type=tcp&headerType=&path=&host=&sni=www.microsoft.com&fp=chrome&pbk=uuhzTx0jwc9UWrsN8pdf0XIPh-B4z1Ke_Gi2ZDkGbRQ&sid=64f2a7b1#%20QUASAR%20</code>
         </div>
         
-        <p class="warning-text"><span>▲</span> СКОПИРУЙТЕ КЛЮЧ-МОСТ ВЫШЕ. ОН ПОНАДОБИТСЯ ДЛЯ ПОДКЛЮЧЕНИЯ.</p>
+        <p class="warning-text">
+            <span>▲</span> СКОПИРУЙТЕ КЛЮЧ-МОСТ ВЫШЕ. ОН ПОНАДОБИТСЯ ДЛЯ ПОДКЛЮЧЕНИЯ.
+        </p>
     </div>
 </div>
 
+<!-- PAGE 2: INSTRUCTIONS -->
 <div class="page">
     <div class="header">
         <div class="logo-container">
-            <div class="logo-text">QUASAR <span style="color: var(--brand-green);">VPN</span></div>
+            <div class="logo-text">QUASAR <span>VPN</span></div>
         </div>
         <h2>НАСТРОЙКА КЛИЕНТА</h2>
     </div>
@@ -402,18 +505,42 @@
         <div class="grid">
             <div class="card">
                 <h3>iOS / iPhone</h3>
-                <div class="step"><span class="step-num">1</span><p>Установите бесплатное приложение <b>HAPP PLUS</b> из App Store.</p></div>
-                <div class="step"><span class="step-num">2</span><p>Скопируйте <b>Ключ-Мост</b> с первой страницы этого гайда.</p></div>
-                <div class="step"><span class="step-num">3</span><p>В приложении перейдите во вкладку <b>Configs</b> → нажмите <b>Плюс (+)</b> → выберите <b>Import from Clipboard</b>.</p></div>
-                <div class="step"><span class="step-num">4</span><p>Вернитесь на вкладку <b>Home</b> и нажмите большую кнопку <b>Connect</b>.</p></div>
+                <div class="step">
+                    <span class="step-num">1</span>
+                    <p>Установите бесплатное приложение <b>HAPP PLUS</b> из App Store.</p>
+                </div>
+                <div class="step">
+                    <span class="step-num">2</span>
+                    <p>Скопируйте <b>Ключ-Мост</b> с первой страницы этого гайда.</p>
+                </div>
+                <div class="step">
+                    <span class="step-num">3</span>
+                    <p>В приложении перейдите во вкладку <b>Configs</b> → нажмите <b>Плюс (+)</b> → выберите <b>Import from Clipboard</b>.</p>
+                </div>
+                <div class="step">
+                    <span class="step-num">4</span>
+                    <p>Вернитесь на вкладку <b>Home</b> и нажмите большую кнопку <b>Connect</b>.</p>
+                </div>
             </div>
 
             <div class="card">
                 <h3>Android</h3>
-                <div class="step"><span class="step-num">1</span><p>Установите бесплатное приложение <b>v2rayNG</b> из Google Play.</p></div>
-                <div class="step"><span class="step-num">2</span><p>Скопируйте <b>Ключ-Мост</b> с первой страницы гайда.</p></div>
-                <div class="step"><span class="step-num">3</span><p>В приложении нажмите на <b>Плюс (+)</b> сверху → выберите <b>Import profile from clipboard</b>.</p></div>
-                <div class="step"><span class="step-num">4</span><p>Нажмите на <b>круглую кнопку (V)</b> в правом нижнем углу для запуска.</p></div>
+                <div class="step">
+                    <span class="step-num">1</span>
+                    <p>Установите бесплатное приложение <b>v2rayNG</b> из Google Play.</p>
+                </div>
+                <div class="step">
+                    <span class="step-num">2</span>
+                    <p>Скопируйте <b>Ключ-Мост</b> с первой страницы гайда.</p>
+                </div>
+                <div class="step">
+                    <span class="step-num">3</span>
+                    <p>В приложении нажмите на <b>Плюс (+)</b> сверху → выберите <b>Import profile from clipboard</b>.</p>
+                </div>
+                <div class="step">
+                    <span class="step-num">4</span>
+                    <p>Нажмите на <b>круглую кнопку (V)</b> в правом нижнем углу для запуска.</p>
+                </div>
             </div>
         </div>
 
@@ -425,10 +552,11 @@
     </div>
 </div>
 
+<!-- PAGE 3: BOT -->
 <div class="page">
     <div class="header">
         <div class="logo-container">
-            <div class="logo-text">QUASAR <span style="color: var(--brand-green);">VPN</span></div>
+            <div class="logo-text">QUASAR <span>VPN</span></div>
         </div>
         <div class="status">FINAL STAGE</div>
     </div>
@@ -456,65 +584,52 @@
 </div>
 
 <script>
-    (function() {
-        const _k = [
-            "dmxlc3M6Ly9hMGM3NGQ1ZS1kMmJlLTQ5NGYtODJhNC01ZjNlZmJmOWNlZWZAcXVhc2FyZGFyay5jb206NDQzP3NlY3VyaXR5PXJlYWxpdHkmdHlwZT10Y3AmaGVhZGVyVHlwZT0mZmxvdz14dGxzLXJwcngtdmlzaW9uJnBhdGg9Jmhvc3Q9JnNuaT13d3cubWljcm9zb2Z0LmNvbSZmcD1jaHJvbWUmcGJrPXV1aHpUeDBqd2M5VVdyc044cGRmMFhJUGgtQjR6MUtlX0dpMlpEa0diUlEmc2lkPTY0ZjJhN2IxI1FVQVNBUg==",
-            "dmxlc3M6Ly9hMGM3NGQ1ZS1kMmJlLTQ5NGYtODJhNC01ZjNlZmJmOWNlZWZAcXVhc2FyZGFyay5jb206ODQ0Mz9zZWN1cml0eT1yZWFsaXR5JnR5cGU9dGNwJmhlYWRlclR5cGU9JmZsb3c9eHRscy1ycHJ4LXZpc2lvbiZwYXRoPSZob3N0PSZzbmk9d3d3LnlhaG9vLmNvbSZmcD1jaHJvbWUmcGJrPXV1aHpUeDBqd2M5VVdyc044cGRmMFhJUGgtQjR6MUtlX0dpMlpEa0diUlEmc2lkPTY0ZjJhN2IxI1FVQVNBUiUyMFJFWg=="
-        ];
+    function copyKey() {
+        const text = document.getElementById('bridgeKey').innerText;
+        const container = document.getElementById('keyContainer');
+        const label = document.getElementById('keyLabel');
+        const codeElement = document.getElementById('bridgeKey');
+        
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        textArea.setAttribute('readonly', '');
+        textArea.style.position = 'absolute';
+        textArea.style.left = '-9999px';
+        document.body.appendChild(textArea);
+        
+        const isIOS = navigator.userAgent.match(/ipad|iphone/i);
+        if (isIOS) {
+            const range = document.createRange();
+            range.selectNodeContents(textArea);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            textArea.setSelectionRange(0, 999999);
+        } else {
+            textArea.select();
+        }
 
-        const _d = (s) => {
-            try { return atob(s); } catch (e) { return ""; }
-        };
-
-        const init = () => {
-            const el = document.getElementById('bridgeKey');
-            if (el) el.innerHTML = _k.map(i => _d(i)).join("<br><br>");
-        };
-
-        const copyToClipboard = async () => {
-            const text = _k.map(i => _d(i)).join("\n");
-            const container = document.getElementById('keyContainer');
-            const label = document.getElementById('keyLabel');
-            const codeElement = document.getElementById('bridgeKey');
+        try {
+            document.execCommand('copy');
             
-            try {
-                if (navigator.clipboard && window.isSecureContext) {
-                    await navigator.clipboard.writeText(text);
-                } else {
-                    const textArea = document.createElement("textarea");
-                    textArea.value = text;
-                    textArea.style.position = 'fixed';
-                    textArea.style.left = '-9999px';
-                    document.body.appendChild(textArea);
-                    textArea.focus();
-                    textArea.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(textArea);
-                }
-                
-                container.classList.add('copied');
-                label.innerText = 'СКОПИРОВАНО!';
-                codeElement.style.opacity = '0.5';
-                
-                setTimeout(() => {
-                    container.classList.remove('copied');
-                    label.innerText = 'КЛИКНИ, ЧТОБЫ СКОПИРОВАТЬ КЛЮЧ';
-                    codeElement.style.opacity = '1';
-                }, 2000);
-            } catch (err) {
-                label.innerText = 'ОШИБКА КОПИРОВАНИЯ';
-                label.style.color = '#ff4d4d';
-            }
-        };
-
-        document.addEventListener("DOMContentLoaded", () => {
-            init();
-            const container = document.getElementById('keyContainer');
-            if (container) {
-                container.addEventListener('click', copyToClipboard);
-            }
-        });
-    })();
+            container.classList.add('copied');
+            label.innerText = 'СКОПИРОВАНО!';
+            codeElement.style.opacity = '0.5';
+            
+            setTimeout(() => {
+                container.classList.remove('copied');
+                label.innerText = 'КЛИКНИ, ЧТОБЫ СКОПИРОВАТЬ КЛЮЧ';
+                codeElement.style.opacity = '1';
+            }, 2000);
+            
+        } catch (err) {
+            label.innerText = 'ОШИБКА КОПИРОВАНИЯ';
+            label.style.color = '#ff4d4d';
+        }
+        
+        document.body.removeChild(textArea);
+    }
 </script>
+
 </body>
 </html>
